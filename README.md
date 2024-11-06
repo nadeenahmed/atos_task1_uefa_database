@@ -6,7 +6,7 @@ Atos, recognizing the pivotal role of sports in our lives, proudly partners with
 Design an ERD for the database and create a materialized view using SQL
 
 # Database Structure
-Players - Contains player details such as PlayerID, Name, DateOfBirth, Nationality, and TeamID
+Players - Contains player details such as PlayerID, Name, DateOfBirth, Nationality, and TeamID \n
 Teams - Stores team information, including TeamID, TeamName, and Country
 Matches - Contains match details like MatchID, Date, and participating teams
 Player_Stats - Holds player statistics for each match, including goals scored, assists, and minutes played
