@@ -21,7 +21,7 @@ Transfer_History - Tracks player transfers with details on transfer dates and te
 # Solution Steps
 1- Designed an ERD using draw.io  
 2- Created the database schema using DDL  
-3- Converted the xlsx file to separate csv files for each table  
+3- Converted the xlsx file to separate csv files for each table using pandas  
 4- Imported the tables into the database  
 5- Wrote the query to materialize the required view  
 6- Prepared a detailed presentation to review and address data quality issues  
