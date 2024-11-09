@@ -1,0 +1,3 @@
+"log_id","team_id","action_type","old_manager_name","new_manager_name","change_date"
+1,1,UPDATE,Marco Rossi,José Romero,2024-11-09 13:08:23.849 +0200
+2,21,DELETE,Marcel koller,,2024-11-09 13:17:36.775 +0200
