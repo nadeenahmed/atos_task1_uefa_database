@@ -63,10 +63,14 @@ WITH CurrentTeam AS(
         MIN(CASE WHEN t.country = 'France' THEN th.transferdate END) AS DateJoinedFrenchTeam,
         MIN(CASE WHEN t.country = 'Germany' THEN th.transferdate END) AS DateJoinedGermanTeam
         
-    FROM players p
-    JOIN teams t ON t.teamID = p.teamID
-    LEFT JOIN transfer_history th ON th.toteamID = t.teamID AND p.playerID = th.playerID
-    GROUP BY p.playerID
+    FROM 
+    	players p
+	JOIN 
+    	transfer_history th ON p.playerID = th.playerID
+	JOIN 
+    	teams t ON th.toTeamID = t.teamID
+    GROUP BY 
+    	p.playerID
 )
 
 SELECT 
@@ -90,7 +94,7 @@ FROM
 		PlayerTotalStats on CurrentTeam.playerID = PlayerTotalStats.playerID
 	JOIN 
 		PlayerMatchStats ON CurrentTeam.playerID = PlayerMatchStats.playerID
-	LEFT JOIN 
+	JOIN 
 		CountryPlayAndJoinDates ON CurrentTeam.playerID = CountryPlayAndJoinDates.playerID
 
 		
@@ -154,4 +158,6 @@ VALUES (21, 'Al-Ahly', 1907, 'Cairo', 'Marcel koller', 'Al Salam', 25000, 'Egypt
 -- Test the trigger function on delete
 DELETE FROM teams
 WHERE teamID = 21;
+
+
 
