@@ -45,7 +45,7 @@ WITH CurrentTeam AS(
 								WHEN MAX(Goals) >= 3 THEN B'1'
 								ELSE B'0'
 							END AS Scored3PlusGoalsInMatch	
-							, CONCAT(SUM(minutesplayed) / 90, ' match', SUM(minutesplayed) % 90, ' min') AS EstimatedMatchesPlayed 
+							, CONCAT(SUM(minutesplayed) / 90, ' match ', SUM(minutesplayed) % 90, ' min') AS EstimatedMatchesPlayed 
 					FROM 
 						player_stats ps 
 					JOIN 
@@ -57,11 +57,11 @@ WITH CurrentTeam AS(
 					)
 , CountryPlayAndJoinDates AS (
     SELECT
-        p.playerID,
-        MAX(CASE WHEN t.country = 'France' THEN 1 ELSE  0 END) AS PlayedInFrance,
-        MAX(CASE WHEN t.country = 'Germany' THEN 1 ELSE 0 END) AS PlayedInGermany,
-        MIN(CASE WHEN t.country = 'France' THEN th.transferdate END) AS DateJoinedFrenchTeam,
-        MIN(CASE WHEN t.country = 'Germany' THEN th.transferdate END) AS DateJoinedGermanTeam
+        p.playerID
+        , MAX(CASE WHEN t.country = 'France' THEN 1 ELSE  0 END) AS PlayedInFrance
+        , MAX(CASE WHEN t.country = 'Germany' THEN 1 ELSE 0 END) AS PlayedInGermany
+        , MIN(CASE WHEN t.country = 'France' THEN th.transferdate END) AS DateJoinedFrenchTeam
+        , MIN(CASE WHEN t.country = 'Germany' THEN th.transferdate END) AS DateJoinedGermanTeam
         
     FROM 
     	players p
